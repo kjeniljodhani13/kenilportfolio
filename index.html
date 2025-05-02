@@ -417,18 +417,18 @@
             }
 
             .blogs-container {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 30px;
-                margin-top: 50px;
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 4rem 3rem;     /* 4rem row-gap, 3rem col-gap */
+              margin-top: 50px;
             }
 
+
             .blog-card {
-                background-color: var(--white);
-                border-radius: 12px;
-                overflow: hidden;
-                box-shadow: var(--card-shadow);
-                transition: all 0.3s ease;
+              padding: 1rem;
+              background: #fff;
+              border-radius: 8px;
+              box-shadow: 0 2px 6px rgba(0,0,0,0.05);
             }
 
             .blog-card:hover {
@@ -493,22 +493,22 @@
                 gap: 8px;
             }
 
-            /* Featured Blog */
+
             .featured-blog {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-                margin-top: 50px;
-                background: var(--white);
-                border-radius: 15px;
-                overflow: hidden;
-                box-shadow: var(--card-shadow);
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 2rem;
+              border-radius: 12px;
+              overflow: hidden;
+              background: #fff;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+              margin-bottom: 4rem;
             }
 
             .featured-image {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
+              width: 100%;
+              height: auto;
+              object-fit: cover;
             }
 
             .featured-content {
@@ -716,6 +716,9 @@
                     gap: 30px;
                     transition: all 0.5s ease;
                 }
+                .featured-blog {
+                    grid-template-columns: 1fr;   /* stack on mobile */
+                }
 
                 .nav-links.active {
                     left: 0;
@@ -770,385 +773,341 @@
                     gap: 15px;
                 }
             }
+
+
+.section.about > .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.section.about .section-title {
+  position: static;
+  left: auto;
+  transform: none;
+  margin: 0 auto 1rem;
+}
+
+/* Remove the card flip on hover */
+.profile-card .card-inner {
+  transition: none;   /* no rotation animation */
+}
+.profile-card:hover .card-inner {
+  transform: none;    /* keep it always facing front */
+}
+
+/* (Optionally) hide the back side completely */
+.profile-card .card-back {
+  display: none;
+}
+
+/* make sure other sections still stack */
+.section:not(.about) > .container {
+  display: block;
+}
+
+.profile-wrapper {
+  width: 100%;
+  max-width: 350px;
+}
+.section > .container {
+  display: block;
+}
+
         </style>
     </head>
     <body>
-        <!-- Navigation -->
-        <nav class="navbar">
-            <div class="container">
-                <a href="#" class="logo">
-                    <i class="fas fa-code logo-icon"></i>
-                    TechInsight
-                </a>
-                <div class="nav-links">
-                    <a href="#home" class="nav-link">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#blog" class="nav-link">Blog</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="#" class="logo">
+        <i class="fas fa-code logo-icon"></i>
+        TechInsight
+      </a>
+      <div class="nav-links">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#blog" class="nav-link">Blog</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </nav>
 
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        Hello, I'm kenil - Developer & Tech Writer
-                    </h1>
-                    <p class="hero-subtitle">
-                        I write about system design, programming concepts and
-                        share my journey in software development
-                    </p>
-                    <div class="hero-btns">
-                        <a href="#blog" class="btn btn-primary">
-                            <i class="fas fa-book-open"></i> Read Blog
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            <i class="fas fa-paper-plane"></i> Contact Me
-                        </a>
-                    </div>
-                </div>
-                <img
-                    src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-                    alt="Developer working"
-                    class="hero-image"
-                />
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="section" id="about">
-            <div class="container">
-                <h2 class="section-title">About Me</h2>
-                <div class="profile-wrapper">
-                    <div class="profile-card">
-                        <div class="card-inner">
-                            <div class="card-front">
-                                <img
-                                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80"
-                                    alt="Profile"
-                                    class="profile-img"
-                                />
-                                <h3 class="profile-name">Kenil Jodhani</h3>
-                                <p class="profile-title">
-                                    Senior Developer & Tech Writer
-                                </p>
-                                <p class="profile-bio">
-                                    I'm passionate about building scalable
-                                    systems and sharing knowledge through
-                                    technical writing.
-                                </p>
-                                <div class="social-links">
-                                    <a href="#" class="social-link"
-                                        ><i class="fab fa-github"></i
-                                    ></a>
-                                    <a href="#" class="social-link"
-                                        ><i class="fab fa-linkedin-in"></i
-                                    ></a>
-                                    <a href="#" class="social-link"
-                                        ><i class="fab fa-twitter"></i
-                                    ></a>
-                                    <a href="#" class="social-link"
-                                        ><i class="fab fa-medium"></i
-                                    ></a>
-                                </div>
-                            </div>
-                            <div class="card-back">
-                                <div>
-                                    <h3 class="profile-name">My Skills</h3>
-                                    <div class="skills-list">
-                                        <span class="skill-tag"
-                                            >System Design</span
-                                        >
-                                        <span class="skill-tag"
-                                            >Cloud Architecture</span
-                                        >
-                                        <span class="skill-tag"
-                                            >JavaScript</span
-                                        >
-                                        <span class="skill-tag">Python</span>
-                                        <span class="skill-tag">DevOps</span>
-                                        <span class="skill-tag">SQL/NoSQL</span>
-                                        <span class="skill-tag"
-                                            >Technical Writing</span
-                                        >
-                                    </div>
-                                </div>
-                                <a href="#contact" class="btn contact-btn"
-                                    >Get In Touch</a
-                                >
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Blog Section -->
-        <section class="section blogs" id="blog">
-            <div class="container">
-                <h2 class="section-title">...</h2>
-
-                <div class="featured-blog">
-                    <img
-                        src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                        alt="System design concepts"
-                        class="featured-image"
-                    />
-                    <div class="featured-content">
-                        <span class="featured-tag">Featured</span>
-                        <h3 class="featured-title">
-                            30 System Design Concepts Every Developer Should
-                            Know
-                        </h3>
-                        <p class="blog-excerpt">
-                            A comprehensive guide covering fundamental system
-                            design principles, patterns, and best practices for
-                            building scalable applications.
-                        </p>
-                        <a href="#" class="read-more"
-                            >Read Article <i class="fas fa-arrow-right"></i
-                        ></a>
-                    </div>
-                </div>
-
-                <div class="blogs-container">
-                    <article class="blog-card">
-                        <img
-                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                            alt="Microservices architecture"
-                            class="blog-image"
-                        />
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <span class="blog-category">System Design</span>
-                                <span>May 15, 2023</span>
-                                <span>8 min read</span>
-                            </div>
-                            <h4 class="blog-title">
-                                Microservices Architecture: Best Practices and
-                                Patterns
-                            </h4>
-                            <p class="blog-excerpt">
-                                Learn how to design and implement microservices
-                                effectively while avoiding common pitfalls in
-                                distributed systems.
-                            </p>
-                            <a href="#" class="read-more"
-                                >Read More <i class="fas fa-arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <img
-                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                            alt="Database scaling"
-                            class="blog-image"
-                        />
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <span class="blog-category">Databases</span>
-                                <span>April 28, 2023</span>
-                                <span>6 min read</span>
-                            </div>
-                            <h4 class="blog-title">
-                                Database Scaling Strategies: From Single Server
-                                to Sharding
-                            </h4>
-                            <p class="blog-excerpt">
-                                A detailed look at different approaches to
-                                scaling databases as your application grows in
-                                traffic and data volume.
-                            </p>
-                            <a href="#" class="read-more"
-                                >Read More <i class="fas fa-arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
-
-                    <article class="blog-card">
-                        <img
-                            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
-                            alt="Caching strategies"
-                            class="blog-image"
-                        />
-                        <div class="blog-content">
-                            <div class="blog-meta">
-                                <span class="blog-category">Performance</span>
-                                <span>April 10, 2023</span>
-                                <span>7 min read</span>
-                            </div>
-                            <h4 class="blog-title">
-                                Effective Caching Strategies for
-                                High-Performance Applications
-                            </h4>
-                            <p class="blog-excerpt">
-                                Explore various caching techniques and how to
-                                implement them to significantly improve your
-                                application's performance.
-                            </p>
-                            <a href="#" class="read-more"
-                                >Read More <i class="fas fa-arrow-right"></i
-                            ></a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section contact" id="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
-                <div class="contact-content">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input
-                                type="text"
-                                id="name"
-                                class="form-control"
-                                placeholder="Your name"
-                                required
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input
-                                type="email"
-                                id="email"
-                                class="form-control"
-                                placeholder="Your email"
-                                required
-                            />
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label"
-                                >Message</label
-                            >
-                            <textarea
-                                id="message"
-                                class="form-control"
-                                placeholder="Your message"
-                                required
-                            ></textarea>
-                        </div>
-                        <button type="submit" class="btn submit-btn">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <a href="#" class="footer-logo">
-                        <i class="fas fa-code"></i> TechInsight
-                    </a>
-                    <div class="footer-links">
-                        <a href="#home" class="footer-link">Home</a>
-                        <a href="#about" class="footer-link">About</a>
-                        <a href="#blog" class="footer-link">Blog</a>
-                        <a href="#contact" class="footer-link">Contact</a>
-                    </div>
-                    <div class="footer-socials">
-                        <a href="#" class="footer-social"
-                            ><i class="fab fa-github"></i
-                        ></a>
-                        <a href="#" class="footer-social"
-                            ><i class="fab fa-linkedin-in"></i
-                        ></a>
-                        <a href="#" class="footer-social"
-                            ><i class="fab fa-twitter"></i
-                        ></a>
-                        <a href="#" class="footer-social"
-                            ><i class="fab fa-medium"></i
-                        ></a>
-                    </div>
-                </div>
-                <p class="copyright">
-                    &copy; 2025 TechInsight. All rights reserved.
-                </p>
-            </div>
-        </footer>
-
-        <script>
-            // Mobile menu toggle
-            const mobileMenuBtn = document.getElementById("mobileMenuBtn");
-            const navLinks = document.querySelector(".nav-links");
-
-            mobileMenuBtn.addEventListener("click", () => {
-                navLinks.classList.toggle("active");
-                mobileMenuBtn.innerHTML = navLinks.classList.contains("active")
-                    ? '<i class="fas fa-times"></i>'
-                    : '<i class="fas fa-bars"></i>';
-            });
-
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-                anchor.addEventListener("click", function (e) {
-                    e.preventDefault();
-
-                    if (navLinks.classList.contains("active")) {
-                        navLinks.classList.remove("active");
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-
-                    const target = document.querySelector(
-                        this.getAttribute("href"),
-                    );
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: "smooth",
-                    });
-                });
-            });
-
-            // Navbar scroll effect
-            window.addEventListener("scroll", () => {
-                const navbar = document.querySelector(".navbar");
-                if (window.scrollY > 50) {
-                    navbar.classList.add("scrolled");
-                } else {
-                    navbar.classList.remove("scrolled");
-                }
-            });
-        </script>
-        <p
-            style="
-                border-radius: 8px;
-                text-align: center;
-                font-size: 12px;
-                color: #fff;
-                margin-top: 16px;
-                position: fixed;
-                left: 8px;
-                bottom: 8px;
-                z-index: 10;
-                background: rgba(0, 0, 0, 0.8);
-                padding: 4px 8px;
-            "
-        >
-            Made with
-            <a
-                href="https://enzostvs-deepsite.hf.space"
-                style="color: #fff"
-                target="_blank"
-                >DeepSite</a
-            >
-            <img
-                src="https://enzostvs-deepsite.hf.space/logo.svg"
-                alt="DeepSite Logo"
-                style="width: 16px; height: 16px; vertical-align: middle"
-            />
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <h1 class="hero-title">Hello, I'm Kenil — Developer &amp; Tech Writer</h1>
+        <p class="hero-subtitle">
+          I write about system design, programming concepts, and share my journey in software development.
         </p>
-    </body>
+        <div class="hero-btns">
+          <a href="#blog" class="btn btn-primary">
+            <i class="fas fa-book-open"></i> Read Blog
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact Me
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img
+          src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1470&q=80"
+          alt="Developer working"
+          class="hero-image"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="profile-wrapper">
+          <div class="profile-card">
+            <div class="card-inner">
+              <!-- Front -->
+              <div class="card-front">
+                <img
+                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=880&q=80"
+                  alt="Kenil's photo"
+                  class="profile-img"
+                />
+                <h3 class="profile-name">Kenil Jodhani</h3>
+                <p class="profile-title">Senior Developer &amp; Tech Writer</p>
+                <p class="profile-bio">
+                  Passionate about building scalable systems and sharing knowledge through technical writing.
+                </p>
+                <div class="social-links">
+                  <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                  <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-link" aria-label="Medium"><i class="fab fa-medium"></i></a>
+                </div>
+              </div>
+              <!-- Back -->
+              <div class="card-back">
+                <h3 class="section-subtitle">My Skills</h3>
+                <div class="skills-list">
+                  <span class="skill-tag">System Design</span>
+                  <span class="skill-tag">Cloud Architecture</span>
+                  <span class="skill-tag">JavaScript</span>
+                  <span class="skill-tag">Python</span>
+                  <span class="skill-tag">DevOps</span>
+                  <span class="skill-tag">SQL/NoSQL</span>
+                  <span class="skill-tag">Technical Writing</span>
+                </div>
+                <a href="#contact" class="btn contact-btn">Get In Touch</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+  <!-- Blog Section -->
+  <section class="section blogs" id="blog">
+    <div class="container">
+      <h2 class="section-title">Latest Articles</h2>
+
+      <!-- Featured Post -->
+      <div class="featured-blog">
+        <img
+          src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1374&q=80"
+          alt="System design concepts"
+          class="featured-image"
+        />
+        <div class="featured-content">
+          <span class="featured-tag">Featured</span>
+          <h3 class="featured-title">
+            30 System Design Concepts Every Developer Should Know
+          </h3>
+          <p class="blog-excerpt">
+            A comprehensive guide covering fundamental system design principles, patterns, and best practices for building scalable applications.
+          </p>
+          <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Grid -->
+      <div class="blogs-container">
+        <!-- Card 1 -->
+        <article class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1374&q=80"
+            alt="Microservices architecture"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">System Design</span>
+              <span>May 15, 2023</span>
+              <span>8 min read</span>
+            </div>
+            <h4 class="blog-title">
+              Microservices Architecture: Best Practices and Patterns
+            </h4>
+            <p class="blog-excerpt">
+              Learn how to design and implement microservices effectively while avoiding common pitfalls in distributed systems.
+            </p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1374&q=80"
+            alt="Database scaling"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">Databases</span>
+              <span>April 28, 2023</span>
+              <span>6 min read</span>
+            </div>
+            <h4 class="blog-title">
+              Database Scaling Strategies: From Single Server to Sharding
+            </h4>
+            <p class="blog-excerpt">
+              A detailed look at different approaches to scaling databases as your application grows in traffic and data volume.
+            </p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="blog-card">
+          <img
+            src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1374&q=80"
+            alt="Caching strategies"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-category">Performance</span>
+              <span>April 10, 2023</span>
+              <span>7 min read</span>
+            </div>
+            <h4 class="blog-title">
+              Effective Caching Strategies for High-Performance Applications
+            </h4>
+            <p class="blog-excerpt">
+              Explore various caching techniques and how to implement them to significantly improve your application's performance.
+            </p>
+            <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <form class="contact-form" novalidate>
+        <div class="form-group">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" id="name" class="form-control" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="email" class="form-label">Email</label>
+          <input type="email" id="email" class="form-control" placeholder="Your email" required />
+        </div>
+        <div class="form-group">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" placeholder="Your message" required></textarea>
+        </div>
+        <button type="submit" class="btn submit-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <a href="#" class="footer-logo"><i class="fas fa-code"></i> TechInsight</a>
+      <div class="footer-links">
+        <a href="#home" class="footer-link">Home</a>
+        <a href="#about" class="footer-link">About</a>
+        <a href="#blog" class="footer-link">Blog</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+      <div class="footer-socials">
+        <a href="#" class="footer-social" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" class="footer-social" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="footer-social" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="footer-social" aria-label="Medium"><i class="fab fa-medium"></i></a>
+      </div>
+      <p class="copyright">&copy; 2025 TechInsight. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+<script>
+(() => {
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const navLinks       = document.querySelector('.nav-links');
+  const navbar         = document.querySelector('.navbar');
+  const ACTIVE_CLASS   = 'active';
+  const MOBILE_BREAK   = 768; // px
+
+  // Toggle mobile menu
+  mobileMenuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle(ACTIVE_CLASS);
+    mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    mobileMenuBtn.innerHTML = isOpen
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
+  });
+
+  // Smooth scrolling & auto-close mobile menu on link click
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', e => {
+      const targetID = anchor.getAttribute('href').slice(1);
+      const targetEl = document.getElementById(targetID);
+      if (!targetEl) return;  // guard
+
+      e.preventDefault();
+      if (navLinks.classList.contains(ACTIVE_CLASS)) {
+        navLinks.classList.remove(ACTIVE_CLASS);
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+      }
+      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Navbar background toggle on scroll
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  };
+  window.addEventListener('scroll', onScroll);
+  onScroll(); // init
+
+  // Close mobile menu if resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > MOBILE_BREAK && navLinks.classList.contains(ACTIVE_CLASS)) {
+      navLinks.classList.remove(ACTIVE_CLASS);
+      mobileMenuBtn.setAttribute('aria-expanded', 'false');
+      mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    }
+  });
+})();
+</script>
+
+</body>
+
 </html>
