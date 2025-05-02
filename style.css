@@ -26,3 +26,60 @@ p {
 .card p:last-child {
 	margin-bottom: 0;
 }
+
+:root {
+  /* new unified spacing variable */
+  --section-gap: 100px;
+  --card-padding: 2rem;
+  --blog-row-gap: 4rem;
+  --blog-col-gap: 3rem;
+}
+
+/* 1) Give each section more vertical breathing room */
+.section {
+  padding: var(--section-gap) 0;
+}
+
+/* 2) Make sure the container inside a section stays block-level */
+.section > .container {
+  display: block;
+}
+
+/* 3) Featured post farther from the grid below */
+.featured-blog {
+  margin-bottom: 4rem;
+}
+
+/* 4) Bigger, more even gaps between all blog cards */
+.blogs-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--blog-row-gap) var(--blog-col-gap); /* row-gap col-gap */
+  margin-top: 50px;
+}
+
+/* 5) Card “paper” styling: more padding & lift on hover */
+.blog-card {
+  padding: var(--card-padding);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+
+/* 6) Optional: add a bit more breathing room around each featured-content block */
+.featured-content {
+  padding: calc(var(--card-padding) * 1.5);
+}
+
+/* 7) If you want even more space below the featured image on mobile */
+@media (max-width: 768px) {
+  .featured-image {
+    margin-bottom: 2rem;
+  }
+}
